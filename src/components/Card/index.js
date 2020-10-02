@@ -8,8 +8,6 @@ import { Button } from '../Button';
 export const Card = () => {
   const [pokemons, setPokemons] = useState({ results: [] });
   const [fetchPokemons, setFetchPokemons] = useState(0);
-  let initialValue = 0;
-  const initialValueRef = useRef(initialValue);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -25,7 +23,6 @@ export const Card = () => {
           fetchPokemons + (index + 1)
         }.png`,
       }));
-      initialValue += 20;
       setPokemons({ results: [...pokemons.results, ...pokemon] });
     };
     fetchPokemon();
